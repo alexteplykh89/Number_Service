@@ -9,7 +9,8 @@ public class NumberServiceImpl extends NumberServiceGrpc.NumberServiceImplBase {
                          StreamObserver<NumberServiceOuterClass.NumberResponse> responseObserver) {
         for (int i = 1; i < request.getLastValue() - request.getFirstValue(); i++) {
             NumberServiceOuterClass.NumberResponse response = NumberServiceOuterClass.NumberResponse
-                    .newBuilder().setNumber(request.getFirstValue() + i)
+                    .newBuilder()
+                        .setNumber(request.getFirstValue() + i)
                     .build();
 
             responseObserver.onNext(response);
